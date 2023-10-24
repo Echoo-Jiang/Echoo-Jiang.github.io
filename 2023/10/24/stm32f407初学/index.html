@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Categories: 网络协议 | Echoのせかい</title>
+    <title>stm32f4系列——M4内核的一些特点 | Echoのせかい</title>
     <meta name="author" content="江城子echo" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -31,6 +31,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -144,60 +148,20 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/categories/%E6%9D%82%E8%B0%88/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                杂谈
-            </a>
+            <div class="article">
+    <div>
+        <h1>stm32f4系列——M4内核的一些特点</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/24
         </span>
         
-        
-        
-        <span>
-            <a href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                编辑器
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/categories/%E5%85%83%E5%99%A8%E4%BB%B6/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                元器件
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                网络协议
-            </a>
-        </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/categories/%E5%8D%95%E7%89%87%E6%9C%BA/" style="background: #00a596">
+        <span class="category">
+            <a href="/categories/%E5%8D%95%E7%89%87%E6%9C%BA/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
@@ -206,70 +170,43 @@
         </span>
         
         
-        
-        <span>
-            <a href="/categories/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BA%91%E6%9C%8D%E5%8A%A1/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                网络与云服务
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/M4%E5%86%85%E6%A0%B8/" style="color: #03a9f4">M4内核</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/stm32/" style="color: #ffa2c4">stm32</a>
+            </span>
+            
         </span>
-        
-        
-        
-        <span>
-            <a href="/categories/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BA%91%E6%9C%8D%E5%8A%A1/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                技术教程
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2023/10/20</div>
-            <a href="/2023/10/20/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/">
-                <h3>网络基础知识</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        网络协议
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/tcp-ip/" style="color: #ff7d73">tcp/ip</a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/http-https/" style="color: #ffa2c4">http/https</a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <blockquote>
+<p>32位Arm cortex M4处理器内核是Cortex-M中首款使用专用数字信号处理（DSP）IP单元（可重用的硬件设计模块）的内核。</p>
+<p>它适合需要高效率、易于使用的控制和信号处理能力的数字信号控制应用。如IoT、电机控制、电源管理、嵌入式音频、工业和家居自动化等应用。</p>
+</blockquote>
+<p>M4的M意为Microcontroller，即微型控制器。<br>M4拥有更高的工作时钟频率，更好的性能，更大的flsh和ram，一般来说还有更丰富的外设接口。</p>
+<span id="more"></span>
+
+<p>为了更直观的体现M4的不同，这里拿M3系列（也许stm32f103就是大多数人第一次接触到Cortex-M系列）进行对比。</p>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -301,6 +238,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 <canvas
     id="fireworks"
