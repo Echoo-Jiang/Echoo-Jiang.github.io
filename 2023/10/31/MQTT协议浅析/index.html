@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: 心情 | Echoのせかい</title>
+    <title>MQTT协议浅析 | Echoのせかい</title>
     <meta name="author" content="江城子echo" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -31,6 +31,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -144,204 +148,111 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
+            <div class="article">
+    <div>
+        <h1>MQTT协议浅析</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/31
+        </span>
         
-        
-        
-        <span>
-            <a href="/tags/%E5%BF%83%E6%83%85/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
+        <span class="category">
+            <a href="/categories/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/">
                 <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                心情
+                通信协议
             </a>
         </span>
         
         
-        
-        
-        
-        <span>
-            <a href="/tags/Markdown/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                Markdown
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/mqtt/" style="color: #ffa2c4">mqtt</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E4%B8%BB%E9%A2%98%E5%92%8C%E8%B4%9F%E8%BD%BD/" style="color: #00bcd4">主题和负载</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%8F%91%E5%B8%83%E5%92%8C%E8%AE%A2%E9%98%85/" style="color: #03a9f4">发布和订阅</a>
+            </span>
+            
         </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E4%BB%8B%E7%BB%8D/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                介绍
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/OLED%E5%B1%8F%E5%B9%95/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                OLED屏幕
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/LCD%E5%B1%8F%E5%B9%95/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                LCD屏幕
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/tcp-ip/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                tcp/ip
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/http-https/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                http/https
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/M4%E5%86%85%E6%A0%B8/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                M4内核
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/stm32/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                stm32
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                图床搭建
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E4%BA%91%E5%AD%98%E5%82%A8/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                云存储
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/mqtt/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                mqtt
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E4%B8%BB%E9%A2%98%E5%92%8C%E8%B4%9F%E8%BD%BD/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                主题和负载
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%8F%91%E5%B8%83%E5%92%8C%E8%AE%A2%E9%98%85/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                发布和订阅
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2023/7/27</div>
-            <a href="/2023/07/27/Hello-World-1/">
-                <h3>你好世界</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/%E6%9D%82%E8%B0%88/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        杂谈
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E5%BF%83%E6%83%85/" style="color: #00a596">心情</a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><p>mqtt是发布&#x2F;订阅的模式，客户端可以订阅感兴趣的主题，并接收与该主题相关的消息。</p>
+<span id="more"></span>
+
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>是中心分布，其他物联网设备连接到同一个服务端。每个物联网节点都可以作为一个发布者或者订阅者。发布者publish给服务器，订阅者subcribe从服务器。</p>
+<h2 id="消息结构"><a href="#消息结构" class="headerlink" title="消息结构"></a>消息结构</h2><ul>
+<li><p>topic，是一个字符串。当订阅者和发布者使用同名的topic时，它们之间就会自动构建连接。topic通过<code>/</code>来区分层级,如：<br><code>chat/room/1 sensor/10/temperature sensor/+/temperature</code></p>
+<p>MQTT  topic支持以下两种通配符：<code>+</code> 和 <code>#</code>。</p>
+<ul>
+<li><p><code>+</code>：表示单层通配符，例如 <code>a/+</code> 匹配 <code>a/x</code> 或 <code>a/y</code>。</p>
+</li>
+<li><p><code>#</code>：表示多层通配符，例如 <code>a/#</code> 匹配 <code>a/x</code>、<code>a/b/c/d</code>。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>：通配符主题只能用于订阅，不能用于发布。</p>
+</blockquote>
+</li>
+<li><p>payload，实际传输的内容，消息的主体部分。</p>
+</li>
+</ul>
+<h2 id="轻量化特性"><a href="#轻量化特性" class="headerlink" title="轻量化特性"></a>轻量化特性</h2><p>MQTT 开销低、报文小的特点使其非常适合物联网设备，因为它消耗更少的资源。</p>
+<h2 id="支持许多编程语言"><a href="#支持许多编程语言" class="headerlink" title="支持许多编程语言"></a>支持许多编程语言</h2><p>MQTT是一个开放的协议，因此获得了广泛的语言支持。</p>
+<h2 id="broker"><a href="#broker" class="headerlink" title="broker"></a>broker</h2><p>MQTT Broker 是负责处理客户端请求的关键组件，包括建立连接、断开连接、订阅和取消订阅等操作，同时还负责消息的转发。</p>
+<h2 id="QoS-服务质量"><a href="#QoS-服务质量" class="headerlink" title="QoS(服务质量)"></a>QoS(服务质量)</h2><p>mqtt提供了三种服务质量，在不同网络环境下保证消息的可靠性。</p>
+<ul>
+<li>QoS 0：消息最多传送一次。如果当前客户端不可用，它将丢失这条消息。</li>
+<li>QoS 1：消息至少传送一次。</li>
+<li>QoS 2：消息只传送一次。</li>
+</ul>
+<h2 id="基本工作流程"><a href="#基本工作流程" class="headerlink" title="基本工作流程"></a>基本工作流程</h2><ol>
+<li>客户端使用TCP&#x2F;IP协议与broke建立连接，可选TLS&#x2F;SSL加密。</li>
+<li>客户端可以向特定topic发布消息，也可订阅topic接收消息。</li>
+<li>broker接受发布的消息，并转发给订阅了对应topic的客户端。根据QoS等级确保消息可靠传递。</li>
+</ol>
+<h2 id="搭建mqtt-broker"><a href="#搭建mqtt-broker" class="headerlink" title="搭建mqtt broker"></a>搭建mqtt broker</h2><p>首先选择一个合适的MQTT服务器软件，这里推荐常用的EMQX。它适用于物联网、工业物联网和车联网。可以通过docker命令来安装emqx。</p>
+<pre><code class="docker">docker run -d --name emqx -p 1883:1883 -p 8083:8083 -p 8084:8084 -p 8883:8883 -p 18083:18083 emqx/emqx
+</code></pre>
+<h2 id="mqtt客户端测试"><a href="#mqtt客户端测试" class="headerlink" title="mqtt客户端测试"></a>mqtt客户端测试</h2><p>推荐使用MQTTX，它可以方便地与Broker进行交互，提升开发和调试的效率。它可以快速创建链接保存并同时建立多个连接客户端。</p>
+<p>以下是一个<a target="_blank" rel="noopener" href="https://www.emqx.com/zh/mqtt/public-mqtt5-broker">免费公共 MQTT Broker</a>，它基于完全托管的 <a target="_blank" rel="noopener" href="https://www.emqx.com/zh/cloud">MQTT 云服务 - EMQX Cloud</a> 创建。服务器信息如下：</p>
+<blockquote>
+<p>Server: <code>broker.emqx.io</code></p>
+<p>TCP Port: <code>1883</code></p>
+<p>WebSocket Port: <code>8083</code></p>
+<p>SSL&#x2F;TLS Port: <code>8883</code></p>
+<p>Secure WebSocket Port: <code>8084</code></p>
+</blockquote>
+<h2 id="保留消息Retain"><a href="#保留消息Retain" class="headerlink" title="保留消息Retain"></a>保留消息Retain</h2><p>当 MQTT 客户端向服务器发布消息时，可以设置保留消息标志。保留消息存储在消息服务器上，后续订阅该主题的客户端仍然可以收到该消息。</p>
+<h2 id="clean-session"><a href="#clean-session" class="headerlink" title="clean session"></a>clean session</h2><p>如果客户端连接时设置 Clean Session 为 false，并且使用相同的客户端 ID 再次上线，那么消息服务器将为客户端缓存一定数量的离线消息，并在它重新上线时发送给它。</p>
+<h2 id="遗嘱消息Last-Will"><a href="#遗嘱消息Last-Will" class="headerlink" title="遗嘱消息Last Will"></a>遗嘱消息Last Will</h2><p>如果 MQTT 客户端异常离线（在断开连接前没有向服务器发送 DISCONNECT 消息），MQTT 服务器会发布遗嘱消息。</p>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -373,6 +284,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 <canvas
     id="fireworks"

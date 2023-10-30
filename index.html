@@ -167,6 +167,64 @@
         
 
 <div class="post">
+    <a href="/2023/10/31/MQTT%E5%8D%8F%E8%AE%AE%E6%B5%85%E6%9E%90/">
+        <h2 class="post-title">MQTT协议浅析</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                通信协议
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/31
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><p>mqtt是发布&#x2F;订阅的模式，客户端可以订阅感兴趣的主题，并接收与该主题相关的消息。</p>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/mqtt/" style="color: #ff7d73">mqtt</a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/%E4%B8%BB%E9%A2%98%E5%92%8C%E8%B4%9F%E8%BD%BD/" style="color: #00bcd4">主题和负载</a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/%E5%8F%91%E5%B8%83%E5%92%8C%E8%AE%A2%E9%98%85/" style="color: #03a9f4">发布和订阅</a>
+        </span>
+        
+    </div>
+    <a href="/2023/10/31/MQTT%E5%8D%8F%E8%AE%AE%E6%B5%85%E6%9E%90/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2023/10/24/%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/">
         <h2 class="post-title">图床搭建</h2>
     </a>
@@ -197,12 +255,7 @@
 <li>本质就是管理图片的云服务器</li>
 <li>可以帮助博客脱离图片附件</li>
 <li>将图片转换成链接，访问链接即是访问图片</li>
-<li>方便迁移markdown文档<!---MORE---></li>
-</ol>
-<h1 id="如何建立存储桶"><a href="#如何建立存储桶" class="headerlink" title="如何建立存储桶"></a>如何建立存储桶</h1><p>以腾讯云为例（其他云服务器也可，或者你有一台自己的服务器），登录后打开右上角的控制台。然后在上方搜索产品“对象存储”。<br>左侧列表选择存储桶列表，创建存储桶。基本信息这一步骤要注意访问权限，由于图床的图需要被人访问，这里权限应该选择包含“公有读”的部分。第二步可选配置对图床没有帮助，可以直接跳过。<img src="https://echobox-1307380937.cos.ap-shanghai.myqcloud.com/echo%E2%80%98s%E5%9B%BE%E5%BA%8A/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20231027135540.png?q-sign-algorithm=sha1&q-ak=AKIDSifIGzDIxK3dgYO3H3D9bPPRgRHpBAQZ_rXRSRr0jA3U1sB5RMeLvKIKrmXBa0yD&q-sign-time=1698681390;1698684990&q-key-time=1698681390;1698684990&q-header-list=host&q-url-param-list=ci-process&q-signature=eade89cc5bfed19f9bffb0049b95ef989f1999f7&x-cos-security-token=OpszgE95umSyj44mLzF5sAiMZyI00Aradeeb87abc7ee9480413646a602b1fc99yguaerzWxtIFpTAEXtu5GM5q4uQQ8mb8P9cU_MmNUH8G2UhmYVCF3pQrCASZmEYm-Aky9BCEEuLl3lHvhTLkLsGVzgCXWcmlK2dRJ9JVipnGVd941Sz31UAci__L4WYO69eSZVVYm-NV3G60TCDLLQhgMGtRZepKQWG_Rx4WbBuTW2pQvm4g_WnNrobGx9Vs&ci-process=originImage" style="zoom: 50%;" /><br>创建完成后，恭喜你，你拥有了一个对象。<del>当然不是你想的那个对象</del>你可以在存储桶列表中找到它。<br><em>这种方法创建的图床每年大概需要消耗您的10元人民币</em></p>
-<h1 id="如何使用存储桶"><a href="#如何使用存储桶" class="headerlink" title="如何使用存储桶"></a>如何使用存储桶</h1><p>有了对象的之后，<del>第一步自然是使用它了。</del>点击它，选择文件列表，你可以创建一个文件夹，将图片手动上传（当然也可以直接不创文件夹直接上传图片）。<br>你可以安装一个Picgo，进行关于腾讯云的相关配置之后，就能方便快捷地上传图片到图床了。<br>具体腾讯云的配置如下。<br>cos版本选择V5。Secretid secretkey appid的获取方式：左侧常用工具，密钥管理，前往访问密钥，即可生成以上三个信息。bukkit栏填入存储桶名称<img src="https://echobox-1307380937.cos.ap-shanghai.myqcloud.com/echo/image-20231031001645880.png" alt="image-20231031001645880"><br>回到存储桶列表，找到ap-xxxxx信息填入存储空间名和确认存储区。存储路径即为之前创建的文件夹（也可以不填，那样就会保存到根目录下)，路径最后还加上&#x2F;，否则最后的文件路径会被当作图片文件的前缀。<br>填完所有必需的配置后，设置为默认图床。</p>
-<h1 id="picgo配合markdown工具自动上传图片"><a href="#picgo配合markdown工具自动上传图片" class="headerlink" title="picgo配合markdown工具自动上传图片"></a>picgo配合markdown工具自动上传图片</h1><p>obsidian可以使用插件image auto upload，typora可以直接设置。<br>以typora为例，文件—&gt;偏好设置—-&gt;图片—&gt;插入图片时上传图片—&gt;上传服务设为picgo app—&gt;设置好路径。<br>配置完成后，有一个好消息，你以后在typora中可以直接粘贴图片了（前提是打开picgo）。</p>
-<h2 id="至此你已经配置好了一个实用的图床。"><a href="#至此你已经配置好了一个实用的图床。" class="headerlink" title="至此你已经配置好了一个实用的图床。"></a>至此你已经配置好了一个实用的图床。</h2>
+<li>方便迁移markdown文档
             
         </div>
     </div>
@@ -216,12 +269,12 @@
         
         <span class="tag">
             
-            <a href="/tags/%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/" style="color: #ff7d73">图床搭建</a>
+            <a href="/tags/%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/" style="color: #03a9f4">图床搭建</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E4%BA%91%E5%AD%98%E5%82%A8/" style="color: #00a596">云存储</a>
+            <a href="/tags/%E4%BA%91%E5%AD%98%E5%82%A8/" style="color: #ffa2c4">云存储</a>
         </span>
         
     </div>
@@ -273,12 +326,12 @@
         
         <span class="tag">
             
-            <a href="/tags/M4%E5%86%85%E6%A0%B8/" style="color: #ff7d73">M4内核</a>
+            <a href="/tags/M4%E5%86%85%E6%A0%B8/" style="color: #ffa2c4">M4内核</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/stm32/" style="color: #03a9f4">stm32</a>
+            <a href="/tags/stm32/" style="color: #ff7d73">stm32</a>
         </span>
         
     </div>
@@ -326,7 +379,7 @@
         
         <span class="tag">
             
-            <a href="/tags/tcp-ip/" style="color: #ff7d73">tcp/ip</a>
+            <a href="/tags/tcp-ip/" style="color: #00bcd4">tcp/ip</a>
         </span>
         
         <span class="tag">
@@ -380,12 +433,12 @@
         
         <span class="tag">
             
-            <a href="/tags/OLED%E5%B1%8F%E5%B9%95/" style="color: #03a9f4">OLED屏幕</a>
+            <a href="/tags/OLED%E5%B1%8F%E5%B9%95/" style="color: #ffa2c4">OLED屏幕</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/LCD%E5%B1%8F%E5%B9%95/" style="color: #00bcd4">LCD屏幕</a>
+            <a href="/tags/LCD%E5%B1%8F%E5%B9%95/" style="color: #ff7d73">LCD屏幕</a>
         </span>
         
     </div>
@@ -433,7 +486,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E5%BF%83%E6%83%85/" style="color: #00bcd4">心情</a>
+            <a href="/tags/%E5%BF%83%E6%83%85/" style="color: #ffa2c4">心情</a>
         </span>
         
     </div>
@@ -488,7 +541,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E4%BB%8B%E7%BB%8D/" style="color: #00bcd4">介绍</a>
+            <a href="/tags/%E4%BB%8B%E7%BB%8D/" style="color: #ffa2c4">介绍</a>
         </span>
         
     </div>

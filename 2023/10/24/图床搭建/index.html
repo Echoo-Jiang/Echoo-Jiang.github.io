@@ -178,7 +178,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/" style="color: #ffa2c4">图床搭建</a>
+                <a href="/tags/%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/" style="color: #ff7d73">图床搭建</a>
             </span>
             
             <span class="tag">
@@ -195,7 +195,7 @@
 <li>本质就是管理图片的云服务器</li>
 <li>可以帮助博客脱离图片附件</li>
 <li>将图片转换成链接，访问链接即是访问图片</li>
-<li>方便迁移markdown文档<!---MORE---></li>
+<li>方便迁移markdown文档<span id="more"></span></li>
 </ol>
 <h1 id="如何建立存储桶"><a href="#如何建立存储桶" class="headerlink" title="如何建立存储桶"></a>如何建立存储桶</h1><p>以腾讯云为例（其他云服务器也可，或者你有一台自己的服务器），登录后打开右上角的控制台。然后在上方搜索产品“对象存储”。<br>左侧列表选择存储桶列表，创建存储桶。基本信息这一步骤要注意访问权限，由于图床的图需要被人访问，这里权限应该选择包含“公有读”的部分。第二步可选配置对图床没有帮助，可以直接跳过。<img src="https://echobox-1307380937.cos.ap-shanghai.myqcloud.com/echo%E2%80%98s%E5%9B%BE%E5%BA%8A/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20231027135540.png?q-sign-algorithm=sha1&q-ak=AKIDSifIGzDIxK3dgYO3H3D9bPPRgRHpBAQZ_rXRSRr0jA3U1sB5RMeLvKIKrmXBa0yD&q-sign-time=1698681390;1698684990&q-key-time=1698681390;1698684990&q-header-list=host&q-url-param-list=ci-process&q-signature=eade89cc5bfed19f9bffb0049b95ef989f1999f7&x-cos-security-token=OpszgE95umSyj44mLzF5sAiMZyI00Aradeeb87abc7ee9480413646a602b1fc99yguaerzWxtIFpTAEXtu5GM5q4uQQ8mb8P9cU_MmNUH8G2UhmYVCF3pQrCASZmEYm-Aky9BCEEuLl3lHvhTLkLsGVzgCXWcmlK2dRJ9JVipnGVd941Sz31UAci__L4WYO69eSZVVYm-NV3G60TCDLLQhgMGtRZepKQWG_Rx4WbBuTW2pQvm4g_WnNrobGx9Vs&ci-process=originImage" style="zoom: 50%;" /><br>创建完成后，恭喜你，你拥有了一个对象。<del>当然不是你想的那个对象</del>你可以在存储桶列表中找到它。<br><em>这种方法创建的图床每年大概需要消耗您的10元人民币</em></p>
 <h1 id="如何使用存储桶"><a href="#如何使用存储桶" class="headerlink" title="如何使用存储桶"></a>如何使用存储桶</h1><p>有了对象的之后，<del>第一步自然是使用它了。</del>点击它，选择文件列表，你可以创建一个文件夹，将图片手动上传（当然也可以直接不创文件夹直接上传图片）。<br>你可以安装一个Picgo，进行关于腾讯云的相关配置之后，就能方便快捷地上传图片到图床了。<br>具体腾讯云的配置如下。<br>cos版本选择V5。Secretid secretkey appid的获取方式：左侧常用工具，密钥管理，前往访问密钥，即可生成以上三个信息。bukkit栏填入存储桶名称<img src="https://echobox-1307380937.cos.ap-shanghai.myqcloud.com/echo/image-20231031001645880.png" alt="image-20231031001645880"><br>回到存储桶列表，找到ap-xxxxx信息填入存储空间名和确认存储区。存储路径即为之前创建的文件夹（也可以不填，那样就会保存到根目录下)，路径最后还加上&#x2F;，否则最后的文件路径会被当作图片文件的前缀。<br>填完所有必需的配置后，设置为默认图床。</p>
