@@ -209,27 +209,15 @@ $ pwd /Users/xxm/learning-git
 <pre><code class="bash">$ git init 
 </code></pre>
 <p>瞬间 Git 就把仓库建好了，而且告诉你是一个空的仓库（empty Git repository），同时在当前目录下多了一个<code>.git</code>的目录，这个目录是 Git 来跟踪管理版本库的，如果你没有看到 .git 目录，那是因为这个目录默认是隐藏的，用<code>ls -ah</code>命令就可以看到了。</p>
-<h3 id="克隆现有的仓库-——-git-clone"><a href="#克隆现有的仓库-——-git-clone" class="headerlink" title="克隆现有的仓库 —— git clone"></a>克隆现有的仓库 —— git clone</h3><p>如果你想获得一份已经存在了的 Git 仓库的拷贝，比如说，你想为某个开源项目贡献自己的一份力，这时就要用到 git clone 命令，Git 克隆的是该 Git 仓库服务器上的几乎所有数据，而不是仅仅复制完成你的工作所需要文件。</p>
-<p><strong>git clone</strong></p>
-<p>当你执行<code>git clone</code> 命令的时候，默认配置下远程 Git 仓库中的每一个文件的每一个版本都将被拉取下来。</p>
-<p>克隆仓库的命令是 git clone <url>。 比如，要克隆 Git 的链接库 libgit2，可以用下面的命令：</p>
-<pre><code class="bash">$ git clone https://gitcode.net/codechina/help-docs
-</code></pre>
-<p>这会在当前目录下创建一个名为 help-docs 的目录，并在这个目录下初始化一个 .git 文件夹， 从远程仓库拉取下所有数据放入 .git 文件夹，然后从中读取最新版本的文件的拷贝。 如果你进入到这个新建的 help-docs 文件夹，你会发现所有的项目文件已经在里面了，准备就绪等待后续的开发和使用。</p>
-<h3 id="自定义本地仓库名称"><a href="#自定义本地仓库名称" class="headerlink" title="自定义本地仓库名称"></a>自定义本地仓库名称</h3><p>当然如果你想在克隆远程仓库的时候，自定义本地仓库的名字也是可以的，你可以通过额外的参数指定新的目录名：</p>
-<pre><code class="bash">$ git clone https://gitcode.net/codechina/help-docs mydocs
-</code></pre>
-<p>这会执行与上一条命令相同的操作，但目标目录名变为了<code> mydocs</code>。</p>
-<p>Git 支持多种数据传输协议。 上面的例子使用的是 https:&#x2F;&#x2F; 协议，不过你也可以使用 git:&#x2F;&#x2F; 协议或者使用 SSH 传输协议，比如 user@server:path&#x2F;to&#x2F;repo.git 。</p>
-<h3 id="编辑并添加文件"><a href="#编辑并添加文件" class="headerlink" title="编辑并添加文件"></a>编辑并添加文件</h3><p>接下来，我们来尝试在已经准备好的 Git 仓库中编辑一个readme.txt文件，内容如下：</p>
-<p>bash Git is a version control system. Git is free software.</p>
+<h2 id="编辑并添加文件"><a href="#编辑并添加文件" class="headerlink" title="编辑并添加文件"></a>编辑并添加文件</h2><p>接下来，我们来尝试在已经准备好的 Git 仓库中创建一个readme.txt文件，内容如下：</p>
+<p><code>bash Git is a version control system. Git is free software.</code></p>
 <p>接下来，我们可以通过2个命令将刚创建好的readme.txt添加到Git仓库：</p>
 <p>第一步，用命令git add告诉 Git，把文件添加到仓库：</p>
 <pre><code class="bash">$ git add readme.txt
 </code></pre>
 <p>执行上面的命令，没有任何显示，说明添加成功。</p>
 <p>提交变动到仓库<br>第二步，用命令git commit告诉 Git，把文件提交到仓库：</p>
-<pre><code class="bash">$ git commit -m &quot;wrote a readme file&quot; 
+<pre><code class="bash">$ git commit -m &quot;随便写点说明wrote a readme file&quot; 
 [master (root-commit) 50ed06b] 
 wrote a readme file 1 file changed, 2 insertions(+) create mode 100644 readme.txt
 </code></pre>
@@ -243,11 +231,14 @@ wrote a readme file 1 file changed, 2 insertions(+) create mode 100644 readme.tx
 </ul>
 <pre><code class="bash">$ git add file1.txt 
 $ git add file2.txt file3.txt 
-$ git commit -m &quot;add 3 files.&quot;
+$ git commit -m &quot;这次一共add 3 files.&quot;
 </code></pre>
 <h4 id="查看Git仓库当前状态变化"><a href="#查看Git仓库当前状态变化" class="headerlink" title="查看Git仓库当前状态变化"></a>查看Git仓库当前状态变化</h4><p>我们已经成功地添加并提交了一个<code>readme.txt</code>文件，接下来让我们继续修改<code>readme.txt</code>文件，改成如下内容：</p>
 <pre><code>bash Git is a distributed version control system. Git is free software.
 </code></pre>
+<blockquote>
+<p>添加了“distributed”</p>
+</blockquote>
 <p><strong>查看 git status 结果</strong></p>
 <p>现在，运行<code>git status</code>命令看看结果：</p>
 <pre><code class="bash">
@@ -258,6 +249,34 @@ modified:   readme.txt
 <pre><code>no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;) 
 </code></pre>
 <p><code>git status</code>命令可以让我们时刻掌握仓库当前的状态，上面的命令输出告诉我们，<code>readme.txt</code>被修改过了，但还没有准备提交的修改。</p>
+<h4 id="比较变动"><a href="#比较变动" class="headerlink" title="比较变动"></a>比较变动</h4><p>虽然 Git 告诉我们<code>readme.txt</code>被修改了，但并没有告诉我们具体修改的内容是什么，假如刚好是上周修改的，等到周一来班时，已经记不清上次怎么修改的<code>readme.txt</code>，这个时候我们就需要用<code>git diff</code>这个命令查看相较于上一次暂存都修改了些什么内容了：</p>
+<p><strong>运行 git diff 命令</strong></p>
+<pre><code class="bash">$ git diff 
+readme.txt 
+diff --git a/readme.txt b/readme.txt 
+index 46d49bf..9247db6 100644 
+--- a/readme.txt 
++++ b/readme.txt 
+@@ -1,2 +1,2 @@ 
+-Git is a version control system. 
++Git is a distributed version control system. Git is free software. (END)
+</code></pre>
+<p><code>git diff</code>顾名思义就是查看 difference，显示的格式正是 Unix 通用的 <code>diff</code> 格式，可以从上面的输出看到，我们在第一行添加了一个<code>distributed</code>单词。</p>
+<h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><p>git log可以查看全部的commit记录，如果嫌输出信息太多，看得眼花缭乱的，可以试试加上<code>--pretty=oneline</code>参数：</p>
+<p><strong>git log –pretty&#x3D;oneline</strong></p>
+<h2 id="克隆现有的仓库-——-git-clone"><a href="#克隆现有的仓库-——-git-clone" class="headerlink" title="克隆现有的仓库 —— git clone"></a>克隆现有的仓库 —— git clone</h2><p>如果你想获得一份已经存在了的 Git 仓库的拷贝，比如说，你想为某个开源项目贡献自己的一份力，这时就要用到 git clone 命令，Git 克隆的是该 Git 仓库服务器上的几乎所有数据，而不是仅仅复制完成你的工作所需要文件。</p>
+<p><strong>git clone</strong></p>
+<p>当你执行<code>git clone</code> 命令的时候，默认配置下远程 Git 仓库中的每一个文件的每一个版本都将被拉取下来。</p>
+<p>克隆仓库的命令是 git clone <url>。 比如，要克隆 Git 的链接库 libgit2，可以用下面的命令：</p>
+<pre><code class="bash">$ git clone https://gitcode.net/codechina/help-docs
+</code></pre>
+<p>这会在当前目录下创建一个名为 help-docs 的目录，并在这个目录下初始化一个 .git 文件夹， 从远程仓库拉取下所有数据放入 .git 文件夹，然后从中读取最新版本的文件的拷贝。 如果你进入到这个新建的 help-docs 文件夹，你会发现所有的项目文件已经在里面了，准备就绪等待后续的开发和使用。</p>
+<p><strong>自定义本地仓库名称</strong></p>
+<p>当然如果你想在克隆远程仓库的时候，自定义本地仓库的名字也是可以的，你可以通过额外的参数指定新的目录名：</p>
+<pre><code class="bash">$ git clone https://gitcode.net/codechina/help-docs mydocs
+</code></pre>
+<p>这会执行与上一条命令相同的操作，但目标目录名变为了<code> mydocs</code>。</p>
+<p>Git 支持多种数据传输协议。 上面的例子使用的是 https:&#x2F;&#x2F; 协议，不过你也可以使用 git:&#x2F;&#x2F; 协议或者使用 SSH 传输协议，比如 user@server:path&#x2F;to&#x2F;repo.git 。</p>
 
     </div>
     
