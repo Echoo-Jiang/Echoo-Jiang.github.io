@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>git入门与进阶（三） | Echoのせかい</title>
+    <title>学习方法、思路、心态的长期存储（保持更新） | Echoのせかい</title>
     <meta name="author" content="江城子echo" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -150,22 +150,22 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>git入门与进阶（三）</h1>
+        <h1>学习方法、思路、心态的长期存储（保持更新）</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/10/31
+            2023/11/2
         </span>
         
         <span class="category">
-            <a href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F/">
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%88%90%E9%95%BF/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                版本控制系统
+                学习和成长
             </a>
         </span>
         
@@ -178,12 +178,17 @@
             
             <span class="tag">
                 
-                <a href="/tags/git/" style="color: #ffa2c4">git</a>
+                <a href="/tags/%E6%96%B9%E6%B3%95%E6%8A%80%E5%B7%A7/" style="color: #ffa2c4">方法技巧</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #ff7d73">分布式管理系统</a>
+                <a href="/tags/%E5%BF%83%E7%90%86/" style="color: #00bcd4">心理</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E6%80%9D%E7%BB%B4%E6%96%B9%E5%BC%8F/" style="color: #ff7d73">思维方式</a>
             </span>
             
         </span>
@@ -191,39 +196,29 @@
     </div>
     
     <div class="content" v-pre>
-        <h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><blockquote>
-<p>游戏里的save和load，git也能做到</p>
+        <blockquote>
+<p>工欲善其事必先利其器  </p>
 </blockquote>
+<p>方法、思路、心态都很重要。<br>笔者根据自己浅薄的经验以及《暗时间》这本书来作一个笔记，长期记录平时遇到的学习方法和心理。以期在漫长的人生中寻找到最适合自己的方式。</p>
 <span id="more"></span>
-
-<p>现在，你已经学会了修改文件，然后把修改提交到Git版本库，现在，再练习一次，修改readme.txt文件如下：</p>
-<pre><code>Git is a distributed version control system.
-Git is free software distributed under the GPL.
-</code></pre>
-<p>然后尝试提交：</p>
-<pre><code>$ git add readme.txt
-$ git commit -m &quot;append GPL&quot;
-[master 1094adb] append GPL
- 1 file changed, 1 insertion(+), 1 deletion(-)
-</code></pre>
-<p>像这样，你不断修改文件，然后不断提交修改到版本库里，就好比游戏中的存档，打不过可以load重来。Git也是一样，每当你觉得文件需要一个“存档”时，就可以“保存一个快照”，这个快照在Git中被称为<code>commit</code>（类比成游戏的存档点）。一旦你把文件改乱了，或者误删了文件，还可以从最近的一个<code>commit</code>恢复，然后继续工作，而不是把几个月的工作成果全部丢失。</p>
-<p>版本控制系统肯定有某个命令可以告诉我们历史记录，在Git中，我们用上一章提到的<code>git log</code>命令查看，你会看见每个commit后面都有一串乱码，这就是版本号。</p>
-<p><img src="https://echobox-1307380937.cos.ap-shanghai.myqcloud.com/echo/202310311614958.png" alt="image-20231031161459899"></p>
-<p>由于Git是分布式的版本控制系统，后面我们还要研究多人在同一个版本库里工作，如果大家都用1，2，3……作为版本号，那肯定就冲突了。所以commit后面的这串乱码其实就是SHA1计算出来的一个非常大的16进制数，可以防止版本号冲突。</p>
-<p>好了，现在我们启动时光穿梭机，准备把<code>readme.txt</code>回退到上一个版本，也就是<code>add a readme</code>的那个版本，怎么做呢？</p>
-<p>首先，Git必须知道当前版本是哪个版本，在Git中，用<code>HEAD</code>表示当前版本，也就是最新的提交<code>f22c...</code>（注意我的提交ID和你的肯定不一样），上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个<code>^</code>比较容易数不过来，所以写成<code>HEAD~100</code>。</p>
-<p>现在，我们要把当前版本<code>append GPL</code>回退到上一个版本<code>add a readme</code></p>
-<p>就可以使用<code>git reset</code>命令(–hard参数的意义之后会讲，这里可以直接用)：</p>
-<pre><code>$ git reset --hard HEAD^
-HEAD is now at 05b0d73 add a readme
-</code></pre>
-<p><img src="https://echobox-1307380937.cos.ap-shanghai.myqcloud.com/echo/202310311617241.png" alt="image-20231031161735214"></p>
-<p>看看<code>readme.txt</code>的内容,已经被还原了（读档了）。</p>
-<p>此时再使用git log，会发现新版本append GPL已经消失了。怎么办？</p>
-<p>只要上面的命令行窗口还没有被关掉，你就可以顺着往上找啊找啊，找到那个<code>append GPL</code>的<code>commit id</code>是<code>f22c2...</code>，于是就可以指定回到未来的某个版本：</p>
-<p>依然还是<code>git reset --hard</code>只不过这次后面加的是版本号（不必写全版本号，取前几位，git会自动寻找），如下：<br><code>$ git reset --hard f22c2</code><br>运行完后再次查看readme.txt，果然，又找回了最新版本append GPL。</p>
-<h2 id="查看历史"><a href="#查看历史" class="headerlink" title="查看历史"></a>查看历史</h2><p>现在，你回退到了某个版本，关掉了电脑，第二天早上就后悔了，想恢复到新版本怎么办？找不到新版本的commit id怎么办？</p>
-<p>在Git中，总是有后悔药可以吃的。当你用$ git reset –hard HEAD^回退到add distributed版本时，再想恢复到append GPL，就必须找到append GPL的commit id。Git提供了一个命令git reflog记录了你的每次命令。<br>在这里给读者留下一个作业，使用git reflog命令找到之前的最新版本号，并恢复到最新版本。</p>
+<h2 id="思维时间"><a href="#思维时间" class="headerlink" title="思维时间"></a>思维时间</h2><p>一台电脑运行空闲迚程也是一天，运行大数据量计算的程序也是一天，对于 CPU 来说同样的一天，价值却是完全不一样的。<br>一个人实际意义上的生命时间应该是他思考的时间。</p>
+<blockquote>
+<p>如果一个人从生下来开始就呆在一个为他特殊建造的无菌保护室里，没有社会交往，没有知识获取，度过了 18 年，你会不会认为他成年了</p>
+<p>​																			–暗时间</p>
+</blockquote>
+<h2 id="“投入时间”是错误的概念"><a href="#“投入时间”是错误的概念" class="headerlink" title="“投入时间”是错误的概念"></a>“投入时间”是错误的概念</h2><p>时间对每个人是不均等的。实际投入&#x3D;时间*效率。<br>电脑开始正式工作前要开机。游戏开始前要加载资源。人进入学习或其他状态前也要预热。<br>如果你没有把要做的事情在cpu里分配一个比较高的<strong>“优先级”</strong>，常驻在大脑中，那么这件事应该会经常遭遇<strong>”中断“</strong>，你的实际时间都花在事件来回切换了。</p>
+<h2 id="总结和推理"><a href="#总结和推理" class="headerlink" title="总结和推理"></a>总结和推理</h2><p>一件事情即使解决了拿到结果，也要回顾过程。<em>这也是许多人选择写博客的原因。</em><br>许多人花时间看了很多书，看完之后有可能什么都没领悟。因为他看书只是记忆，而不是推理。<br>回顾总结时，应该注意，这些知识是否需要转化为自己的必备知识。<br>从长远来看，好的过程总体上导致好的结果。</p>
+<h2 id="暗时间"><a href="#暗时间" class="headerlink" title="暗时间"></a>暗时间</h2><blockquote>
+<p>你走路、买菜、洗脸、洗手、坐公车、逛街、出游、吃饭、睡觉，所有这些时间都可以成为“暗时间”。</p>
+</blockquote>
+<p>充分利用暗时间进行思考，你的生命无形会比别人多了一大块时间。</p>
+<h2 id="学习主次、精通和涉猎"><a href="#学习主次、精通和涉猎" class="headerlink" title="学习主次、精通和涉猎"></a>学习主次、精通和涉猎</h2><p>对于自己的专业领域应该是知其然并知其所以然，而对于附属领域应知其然为主。</p>
+<h2 id="费曼学习法"><a href="#费曼学习法" class="headerlink" title="费曼学习法"></a>费曼学习法</h2><p>以教学代替学，找出自己理解的不足之处，鼓励自己学习和理解，达到更高的学习质量。</p>
+<h2 id="峰终定理"><a href="#峰终定理" class="headerlink" title="峰终定理"></a>峰终定理</h2><p>心理学原理，人们在回忆某段经历时，主要会关注两点1. 峰值。2. 结束的最后一刻。利用这两点设计一个更好的学习体验和回忆。</p>
+<h2 id="善于利用条件，站在巨人的肩膀上"><a href="#善于利用条件，站在巨人的肩膀上" class="headerlink" title="善于利用条件，站在巨人的肩膀上"></a>善于利用条件，站在巨人的肩膀上</h2><blockquote>
+<p>君子性非异也，善假于物也。<br>善于利用周围已有的一切形势、机会、设施、平台、工具来解决问题，用最小的代价实现最大的成功。</p>
+</blockquote>
+<h2 id="超越心态"><a href="#超越心态" class="headerlink" title="超越心态"></a>超越心态</h2><p>三人行，则必有我师。而弟子不必不如师，师不必贤于弟子。<br>对于目前比自己厉害的人，不必崇拜。学习他身上的优点，然后追赶超越。<br>to be updated…</p>
 
     </div>
     
