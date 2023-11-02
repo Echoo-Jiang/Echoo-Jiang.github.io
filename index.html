@@ -194,29 +194,7 @@
         <div class="content" v-pre>
             
             <p>Echo已经学会了在本地创建Git仓库，随即又有新的需求想要动手实现了。</p>
-<p>他想在Github创建一个Git仓库，让本地和github的这两个仓库进行远程同步。如此一来，Github可以作为本地的备份，还能让其他人远程协作（你也可以不带电脑在外地方便地更新blog了）。真是一句多得呀！Echo这么想着，已经摩拳擦掌、跃跃欲试了。</p>
-<p>首先打开github主页，点击右上角的“+”，create new…–&gt;New repository。<img src="https://echobox-1307380937.cos.ap-shanghai.myqcloud.com/echo/202311012329088.png" alt="image-20231101232913044"></p>
-<p>创建完成后，github贴心地给出了很多tips。</p>
-<p><img src="https://echobox-1307380937.cos.ap-shanghai.myqcloud.com/echo/202311012347153.png" alt="1698853598898"></p>
-<p>然后我们这里选择第二个方式。</p>
-<p>在本地仓库打开git bash。</p>
-<pre><code class="bash">git remote add origin git@github.com:XXXXXXXXXXXXXXXXXX 
-git branch -M main
-git push -u origin main
-</code></pre>
-<p>xxxxxxxxxxx<strong>这里填的是你自己的仓库地址</strong></p>
-<p>origin是远程库的叫法。你可以修改它<del>但其实没有必要</del>。</p>
-<p><code>git branch -M main</code> 命令用于将当前分支重命名为 <code>main</code><img src="https://echobox-1307380937.cos.ap-shanghai.myqcloud.com/echo/202311020949799.png" alt="image-20231102094849209">。<em>在最新的 Git 版本中，主分支的名称已从 <code>master</code> 改为 <code>main</code>。</em></p>
-<p>最后，<code>git push -u origin main</code> 命令将本地代码库的 <code>main</code> 分支推送到远程仓库的 <code>main</code> 分支，并使用 <code>-u</code> 参数设置该远程分支为默认上游分支，以后的 <code>git push</code> 命令就可以简化为 <code>git push</code>。</p>
-<blockquote>
-<p>请确保在执行这些命令之前<strong>已经初始化了本地代码库（通过 <code>git init</code> 命令）</strong>并添加了要提交的文件（通过 <code>git add &lt;filename&gt;</code> 命令），然后再依次执行以上这些命令。</p>
-</blockquote>
-<p>到git push这一步结束，echo发现，自己的github已经出现了一个和本地仓库一模一样的远程库。终于大功告成！</p>
-<p>从现在起，只要本地作了提交，就可以通过命令：</p>
-<pre><code>$ git push origin master
-</code></pre>
-<p>把本地<code>master</code>分支的最新修改推送至GitHub，现在，你就拥有了真正的分布式版本库！</p>
-
+<p>他想在Github创建一个Git仓库，让本地和github的这两个仓库进行远程同步。如此一来，Github可以作为本地的备份，还能让其他人远程协作（你也可以不带电脑在外地方便地更新blog了）。真是一举多得呀！
             
         </div>
     </div>
@@ -230,17 +208,17 @@ git push -u origin main
         
         <span class="tag">
             
-            <a href="/tags/git/" style="color: #03a9f4">git</a>
+            <a href="/tags/git/" style="color: #00bcd4">git</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #ffa2c4">分布式管理系统</a>
+            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #ff7d73">分布式管理系统</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/" style="color: #ff7d73">远程仓库</a>
+            <a href="/tags/%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/" style="color: #ffa2c4">远程仓库</a>
         </span>
         
     </div>
@@ -288,12 +266,12 @@ git push -u origin main
         
         <span class="tag">
             
-            <a href="/tags/git/" style="color: #ffa2c4">git</a>
+            <a href="/tags/git/" style="color: #03a9f4">git</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #03a9f4">分布式管理系统</a>
+            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #00bcd4">分布式管理系统</a>
         </span>
         
         <span class="tag">
@@ -303,7 +281,7 @@ git push -u origin main
         
         <span class="tag">
             
-            <a href="/tags/%E5%88%A0%E9%99%A4/" style="color: #00a596">删除</a>
+            <a href="/tags/%E5%88%A0%E9%99%A4/" style="color: #03a9f4">删除</a>
         </span>
         
     </div>
@@ -352,17 +330,17 @@ git push -u origin main
         
         <span class="tag">
             
-            <a href="/tags/git/" style="color: #03a9f4">git</a>
+            <a href="/tags/git/" style="color: #ff7d73">git</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #00bcd4">分布式管理系统</a>
+            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #03a9f4">分布式管理系统</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E7%AE%A1%E7%90%86%E4%BF%AE%E6%94%B9/" style="color: #ff7d73">管理修改</a>
+            <a href="/tags/%E7%AE%A1%E7%90%86%E4%BF%AE%E6%94%B9/" style="color: #00a596">管理修改</a>
         </span>
         
     </div>
@@ -425,7 +403,7 @@ git push -u origin main
         
         <span class="tag">
             
-            <a href="/tags/%E6%9A%82%E5%AD%98%E5%8C%BA/" style="color: #ffa2c4">暂存区</a>
+            <a href="/tags/%E6%9A%82%E5%AD%98%E5%8C%BA/" style="color: #03a9f4">暂存区</a>
         </span>
         
     </div>
@@ -475,12 +453,12 @@ git push -u origin main
         
         <span class="tag">
             
-            <a href="/tags/git/" style="color: #00bcd4">git</a>
+            <a href="/tags/git/" style="color: #00a596">git</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #00a596">分布式管理系统</a>
+            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #00bcd4">分布式管理系统</a>
         </span>
         
     </div>
@@ -529,12 +507,12 @@ git push -u origin main
         
         <span class="tag">
             
-            <a href="/tags/git/" style="color: #03a9f4">git</a>
+            <a href="/tags/git/" style="color: #00a596">git</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #ff7d73">分布式管理系统</a>
+            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #00bcd4">分布式管理系统</a>
         </span>
         
     </div>
@@ -588,7 +566,7 @@ git push -u origin main
         
         <span class="tag">
             
-            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #00bcd4">分布式管理系统</a>
+            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #ff7d73">分布式管理系统</a>
         </span>
         
     </div>
@@ -636,7 +614,7 @@ git push -u origin main
         
         <span class="tag">
             
-            <a href="/tags/mqtt/" style="color: #ff7d73">mqtt</a>
+            <a href="/tags/mqtt/" style="color: #ffa2c4">mqtt</a>
         </span>
         
         <span class="tag">
@@ -646,7 +624,7 @@ git push -u origin main
         
         <span class="tag">
             
-            <a href="/tags/%E5%8F%91%E5%B8%83%E5%92%8C%E8%AE%A2%E9%98%85/" style="color: #00a596">发布和订阅</a>
+            <a href="/tags/%E5%8F%91%E5%B8%83%E5%92%8C%E8%AE%A2%E9%98%85/" style="color: #00bcd4">发布和订阅</a>
         </span>
         
     </div>
@@ -698,12 +676,12 @@ git push -u origin main
         
         <span class="tag">
             
-            <a href="/tags/%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/" style="color: #00bcd4">图床搭建</a>
+            <a href="/tags/%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/" style="color: #ffa2c4">图床搭建</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E4%BA%91%E5%AD%98%E5%82%A8/" style="color: #03a9f4">云存储</a>
+            <a href="/tags/%E4%BA%91%E5%AD%98%E5%82%A8/" style="color: #00bcd4">云存储</a>
         </span>
         
     </div>
