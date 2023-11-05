@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Linux系统编程 | Echoのせかい</title>
+    <meta name="author" content="江城子echo" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/1.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading2.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>ECHOのせかい</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;ECHOのせかい</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>Linux系统编程</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/11/2
+        </span>
+        
+        <span class="category">
+            <a href="/categories/linux/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                linux
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/" style="color: #03a9f4">系统编程</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>linux系统编程也叫linux下的高级编程，系统编程介于应用层和驱动层之间。<br>学习linux系统编程，前提是你已经会使用linux的指令，以及c语言。如果不会，请先移步学习前置。</p>
+<blockquote>
+<p>这条博客会比较长。             –Echo</p>
+</blockquote>
+<span id="more"></span>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><hr>
+<h2 id="01系统编程是什么"><a href="#01系统编程是什么" class="headerlink" title="01系统编程是什么"></a>01系统编程是什么</h2><p>先思考两个问题。</p>
+<ol>
+<li>hello world为何能输出到屏幕上？</li>
+<li>操作系统是干嘛的，他的主要任务是什么？</li>
+</ol>
+<p><img src="https://echobox-1307380937.cos.ap-shanghai.myqcloud.com/echo/202311041612519.png" alt="在这里插入图片描述"></p>
+<p>如图所示，<strong>系统调用（system_call）</strong>就是用户程序和内核之间的<strong>接口</strong>，通俗来说，用户空间（如文本编辑器或你爱的游戏）需要获得服务或者资源所以向内核发起函数调用；<strong>内核空间</strong>就是系统内核的运行环境，<strong>用户空间</strong>则是用户应用程序的运行环境。</p>
+<p>最底层则是<strong>硬件层</strong>，操作系统通过<strong>驱动程序</strong>与硬件进行交互，提供硬件访问的抽象接口给上层的应用程序。</p>
+<h2 id="系统编程就是利用系统调用提供的这些接口、或者说函数、去操作磁盘、终端、网络等硬件。-02系统编程的特点1-无法跨平台：Linux与windows不通用。2-速度慢：用户空间到内核空间的切换需要时间。3-更加底层：接口更加复杂。-03系统编程的各知识点本文将其分为以下几点：1-系统调用原理2-获取系统内核信息3-文件IO4-高级文件IO5-守护进程6-内核编程-系统调用原理"><a href="#系统编程就是利用系统调用提供的这些接口、或者说函数、去操作磁盘、终端、网络等硬件。-02系统编程的特点1-无法跨平台：Linux与windows不通用。2-速度慢：用户空间到内核空间的切换需要时间。3-更加底层：接口更加复杂。-03系统编程的各知识点本文将其分为以下几点：1-系统调用原理2-获取系统内核信息3-文件IO4-高级文件IO5-守护进程6-内核编程-系统调用原理" class="headerlink" title="系统编程就是利用系统调用提供的这些接口、或者说函数、去操作磁盘、终端、网络等硬件。## 02系统编程的特点1. 无法跨平台：Linux与windows不通用。2. 速度慢：用户空间到内核空间的切换需要时间。3. 更加底层：接口更加复杂。## 03系统编程的各知识点本文将其分为以下几点：1. 系统调用原理2. 获取系统内核信息3. 文件IO4. 高级文件IO5. 守护进程6. 内核编程# 系统调用原理"></a><strong>系统编程</strong>就是利用系统调用提供的这些<span style="color:red;">接口、或者说函数、去操作磁盘、终端、网络等硬件</span>。<br>## 02系统编程的特点<br>1. 无法跨平台：Linux与windows不通用。<br>2. 速度慢：用户空间到内核空间的切换需要时间。<br>3. 更加底层：接口更加复杂。<br>## 03系统编程的各知识点<br>本文将其分为以下几点：<br>1. 系统调用原理<br>2. 获取系统内核信息<br>3. 文件IO<br>4. 高级文件IO<br>5. 守护进程<br>6. 内核编程<br># 系统调用原理</h2><p>操作系统通过系统调用来为运行在操作系统上的进程提供服务。<del>这句话真拗口</del><br>当用户态进程发起一个系统调用，CPU将切换到<strong>内核态</strong>并且执行一个<strong>内核函数</strong>。内核函数负责相应应用程序的要求，例如操作文件、进行网络通讯或者申请内存资源等。<br>举一个hello_WORLD的例子。</p>
+<pre><code class="c">#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+
+int main(int argc, char *argv[])
+&#123;
+    char *msg = &quot;Hello, world!\n&quot;;
+    write(1, msg, strlen(msg));
+
+    return 0;
+&#125;
+</code></pre>
+<p>您可能对这个程序有种熟悉又陌生的感觉。<br>输出文本难道不是使用printf函数吗？<br>这句话对也不对。printf是C库中的一个函数，它封装了write系统调用。也就是说printf本质上还是write在起作用。</p>
+<h2 id="调用流程"><a href="#调用流程" class="headerlink" title="调用流程"></a>调用流程</h2><p>那么，在应用程序内，调用一个系统调用的流程是怎样的呢？<br>我们以一个假设的系统调用 xyz 为例，介绍一次系统调用的所有环节。<img src="https://echobox-1307380937.cos.ap-shanghai.myqcloud.com/echo/202311041807067.jpeg" alt="../../_images/92b3f2ae7105aa2017ac7f475892aca9.jpg"><br>系统调用执行的流程如下：</p>
+<ol>
+<li><strong>应用程序</strong>需要资源或者服务，所以通过代码调用系统调用（xyz），该函数封装了系统调用。</li>
+<li><strong>库函数</strong>（此处指的是xyz）负责准备向内核传递的参数，随后触发<strong>软中断</strong>（通过一个特殊的指令，使用户态切换成内核态）以切换到内核。</li>
+<li>CPU被<strong>软中断</strong>打断，（根据系统调用号，决定调用哪个系统调用）执行中断处理函数，这就是系统调用处理函数（system_call）。</li>
+<li>系统调用处理函数调用系统调用服务例程（sys_xyz()）,此时才真正开始系统调用。</li>
+<li>内核态切回用户态·。<br><em>目前的冷知识：频繁切换状态损失较大，为了减少系统调用的次数，通常使用缓冲区、批处理技术。</em></li>
+</ol>
+<h2 id="执行态切换"><a href="#执行态切换" class="headerlink" title="执行态切换"></a>执行态切换</h2><p><strong>应用程序</strong>与 <strong>库函数</strong>之间， <strong>系统调用处理函数</strong> 与 <strong>系统调用服务例程</strong> 之间均分别在同一个态，所以它们都是普通函数调用。</p>
+<p>复杂的是 <strong>库函数</strong> 和<strong>系统调用处理函数</strong> 之间，涉及到了用户态和内核态的切换。</p>
+<p>内核有许多功能的系统调用，是否意味着有<strong>多个</strong>系统调用处理函数与之一一对应呢？很可惜，不是的。</p>
+<p>只有<strong>一个</strong>系统调用处理函数，系统调用处理函数是使用不同的<strong>系统调用号</strong>来区分的。Linux中，系统调用号使用eax寄存器来传递。</p>
+<h2 id="编程实践"><a href="#编程实践" class="headerlink" title="编程实践"></a>编程实践</h2><p>hello_world-int.S</p>
+<pre><code class="汇编">.section .rodata
+
+msg:
+    .ascii &quot;Hello, world!\n&quot;
+
+.section .text
+
+.global _start
+
+_start:
+    # call SYS_WRITE
+    movl $4, %eax
+    # push arguments
+    movl $1, %ebx
+    movl $msg, %ecx
+    movl $14, %edx
+    int $0x80
+
+    # Call SYS_EXIT
+    movl $1, %eax
+    # push arguments
+    movl $0, %ebx
+    # initiate
+    int $0x80
+</code></pre>
+<p>这是一个汇编语言程序，程序入口在 _start 标签之后。</p>
+<p>第 12 行，准备 <strong>系统调用号</strong> ：将常数 4 放进 <strong>寄存器</strong> eax 。 <strong>系统调用号</strong> 4 代表 <strong>系统调用</strong> SYS_write ， 我们将通过该系统调用向标准输出写入一个字符串。</p>
+<p>第 14-16 行， 准备系统调用参数：第一个参数放进 <strong>寄存器</strong> ebx ，第二个参数放进 ecx ， 以此类推。<em>（可以从a、b、c、d知道最多只有4个参数）</em></p>
+<p><code>write</code>系统调用需要3个参数：</p>
+<ul>
+<li><p>文件描述符，标准输出文件描述符为1；（处理1还有0、2，这里可以猜猜它们是什么的文件描述符）</p>
+</li>
+<li><p>写入内容（缓冲区）地址；</p>
+</li>
+<li><p>写入内容长度（字节数）；<br>第17行，执行<code>int</code>指令触发软中断0x80，程序将陷入内核态并由内核执行系统调用。 系统调用执行完毕后，内核将负责切换回用户态，应用程序继续执行之后的指令( 从 20 行开始 )。</p>
+<p>第 20-24 行，调用 <a target="_blank" rel="noopener" href="http://man7.org/linux/man-pages/man2/exit.2.html">exit</a> 系统调用，以便退出程序。</p>
+</li>
+</ul>
+<blockquote>
+<h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><p>  注意到，这里必须显式调用 exit 系统调用退出程序。 否则，程序将继续往下执行，最终遇到段错误( segmentation fault )！<br>读者可能很好奇——我在写 C 语言或者其他程序时，这个调用并不是必须的！<br>  这是因为 C 库( libc )已经帮你把脏活累活都干了。</p>
+</blockquote>
+<p>接下来，我们编译并执行这个汇编语言程序：</p>
+<pre><code class="汇编">$ ls
+hello_world-int.S
+$ as -o hello_world-int.o hello_world-int.S
+$ ls
+hello_world-int.o  hello_world-int.S
+$ ld -o hello_world-int hello_world-int.o
+$ ls
+hello_world-int  hello_world-int.o  hello_world-int.S
+$ ./hello_world-int
+Hello, world!
+</code></pre>
+<blockquote>
+<p>这是一个汇编语言编写的hello world程序，使用了x86架构下的中断指令来输出文本信息到控制台。<br>首先，使用ls命令查看当前目录下的文件列表，只有一个名为hello_world-int.S的文件。<br>接着，使用as命令将汇编代码转换为目标文件hello_world-int.o。-o选项用于指定输出文件名，后面紧跟着需要编译的源文件名。<br>然后，使用ld命令将目标文件链接成可执行文件hello_world-int。-o选项用于指定输出文件名，后面紧跟着需要链接的目标文件名。<br>最后，运行可执行文件.&#x2F;hello_world-int，程序输出Hello, world!。</p>
+</blockquote>
+<p>其实，将 系统调用号 和 调用参数 放进正确的 寄存器 并触发正确的 软中断 是个重复的麻烦事。 C 库已经把这脏累活给干了——试试 syscall 函数吧！</p>
+<pre><code class="c">#include &lt;string.h&gt;
+#include &lt;sys/syscall.h&gt;
+#include &lt;unistd.h&gt;
+
+int main(int argc, char *argv[])
+&#123;
+    char *msg = &quot;Hello, world!\n&quot;;
+    syscall(SYS_write, 1, msg, strlen(msg));
+
+    return 0;
+&#125;
+</code></pre>
+<blockquote>
+<p>sys&#x2F;syscall.h用于访问系统调用号，unistd.h用于访问Unix标准库函数。<br>使用syscall函数进行系统调用，调用号为SYS_write，参数分别为文件描述符1（表示标准输出）、要输出的字符串msg、字符串的长度（通过strlen函数获取）。</p>
+</blockquote>
+<h1 id="系统内核信息"><a href="#系统内核信息" class="headerlink" title="系统内核信息"></a>系统内核信息</h1><h1 id="文件IO"><a href="#文件IO" class="headerlink" title="文件IO"></a>文件IO</h1><h1 id="高级文件IO"><a href="#高级文件IO" class="headerlink" title="高级文件IO"></a>高级文件IO</h1><h1 id="守护进程"><a href="#守护进程" class="headerlink" title="守护进程"></a>守护进程</h1><h1 id="内核编程"><a href="#内核编程" class="headerlink" title="内核编程"></a>内核编程</h1>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Echoのせかい
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;江城子echo
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+<canvas
+    id="fireworks"
+    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767"
+></canvas>
+<script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+<script src="/js/fireworks.min.js"></script>
+<canvas
+    id="background"
+    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: -1"
+></canvas>
+<script src="/js/background.min.js"></script>
+</html>
