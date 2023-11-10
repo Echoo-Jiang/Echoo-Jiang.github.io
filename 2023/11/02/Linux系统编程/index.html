@@ -178,7 +178,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/" style="color: #03a9f4">系统编程</a>
+                <a href="/tags/%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/" style="color: #ffa2c4">系统编程</a>
             </span>
             
         </span>
@@ -254,7 +254,7 @@ _start:
 <p>这是一个汇编语言程序，程序入口在 _start 标签之后。</p>
 <p>第 12 行，准备 <strong>系统调用号</strong> ：将常数 4 放进 <strong>寄存器</strong> eax 。 <strong>系统调用号</strong> 4 代表 <strong>系统调用</strong> SYS_write ， 我们将通过该系统调用向标准输出写入一个字符串。</p>
 <p>第 14-16 行， 准备系统调用参数：第一个参数放进 <strong>寄存器</strong> ebx ，第二个参数放进 ecx ， 以此类推。<em>（可以从a、b、c、d知道最多只有4个参数）</em></p>
-<p><code>write</code>系统调用需要3个参数：</p>
+<p>例如<code>write</code>系统调用需要3个参数：</p>
 <ul>
 <li><p>文件描述符，标准输出文件描述符为1；（处理1还有0、2，这里可以猜猜它们是什么的文件描述符）</p>
 </li>
@@ -298,7 +298,39 @@ int main(int argc, char *argv[])
 <blockquote>
 <p>sys&#x2F;syscall.h用于访问系统调用号，unistd.h用于访问Unix标准库函数。<br>使用syscall函数进行系统调用，调用号为SYS_write，参数分别为文件描述符1（表示标准输出）、要输出的字符串msg、字符串的长度（通过strlen函数获取）。</p>
 </blockquote>
-<h1 id="系统内核信息"><a href="#系统内核信息" class="headerlink" title="系统内核信息"></a>系统内核信息</h1><h1 id="文件IO"><a href="#文件IO" class="headerlink" title="文件IO"></a>文件IO</h1><h1 id="高级文件IO"><a href="#高级文件IO" class="headerlink" title="高级文件IO"></a>高级文件IO</h1><h1 id="守护进程"><a href="#守护进程" class="headerlink" title="守护进程"></a>守护进程</h1><h1 id="内核编程"><a href="#内核编程" class="headerlink" title="内核编程"></a>内核编程</h1>
+<h1 id="系统内核信息"><a href="#系统内核信息" class="headerlink" title="系统内核信息"></a>系统内核信息</h1><p>输入uname -a得到系统信息。</p>
+<pre><code class="BASH">[echo@centos7 ~]$ uname -a
+Linux centos7 3.10.0-957.el7.x86_64 #1 SMP Thu Nov 8 23:39:32 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre>
+<p>这个信息告诉我们以下几件事情：</p>
+<p>架构：x86_64 是一种广泛使用的 64 位处理器架构，它被用于许多个人电脑和服务器。<br>操作系统：你的系统是基于 CentOS 7 发行版，它是一个流行的企业级 Linux 发行版，通常用于服务器环境。<br>内核版本：3.10.0-957.el7 是你的 Linux 内核版本，它提供了操作系统最基本的功能，包括对硬件的抽象和管理。<br>命令通过同名系统调用获得信息， uname 系统调用非常简单，一个例子足以说明用法：</p>
+<pre><code class="c">#include &lt;stdio.h&gt;
+#include &lt;sys/utsname.h&gt;
+
+
+int main(int argc, char *argv[])
+&#123;
+    struct utsname utsname;
+
+    int rv = uname(&amp;utsname);
+    if (rv == -1) &#123;
+        perror(&quot;uname&quot;);
+        return 1;
+    &#125;
+
+    printf(&quot;sysname: %s\n&quot;, utsname.sysname);
+    printf(&quot;nodename: %s\n&quot;, utsname.nodename);
+    printf(&quot;release: %s\n&quot;, utsname.release);
+    printf(&quot;version: %s\n&quot;, utsname.version);
+    printf(&quot;machine: %s\n&quot;, utsname.machine);
+#ifdef _GNU_SOURCE
+    printf(&quot;dnsdomainname: %s\n&quot;, utsname.domainname);
+#endif
+
+    return 0;
+&#125;
+</code></pre>
+<h1 id="文件IO"><a href="#文件IO" class="headerlink" title="文件IO"></a>文件IO</h1><h1 id="高级文件IO"><a href="#高级文件IO" class="headerlink" title="高级文件IO"></a>高级文件IO</h1><h1 id="守护进程"><a href="#守护进程" class="headerlink" title="守护进程"></a>守护进程</h1><h1 id="内核编程"><a href="#内核编程" class="headerlink" title="内核编程"></a>内核编程</h1>
     </div>
     
     
